@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: cursive;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expense-card {
+  border: 1px solid gainsboro;
+  padding: 2rem;
+  box-shadow: 5px 5px 5px rgb(158, 158, 158);
+}
+.container-header {
+  padding: 1rem 0;
+}
+
+.Header {
+  font-size: 30px;
+  font-family: cursive;
+  font-variant: all-small-caps;
+  font-weight: 400;
+}
+
+.Divider {
+  border-left: 1px solid gainsboro;
+}
+
+.income_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid gainsboro;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.expense-color {
+  color: red;
+}
+
+.Income-color {
+  color: green;
+}
+
+.container_history {
+  list-style: none;
+  padding: 0.75rem;
+}
+
+.title_form {
+  margin-bottom: 1rem;
+  border-bottom: 2px solid black;
+}
+
+.container_form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.container_form > button {
+  background: #257272;
+  color: white;
+  border: none;
+  padding: 0.2rem;
+  border-radius: 7px;
+  box-shadow: 1px 2px 2px #257272;
+  outline: none;
+}
+
+.container_form > button:hover {
+  background: #104b4b;
+  color: white;
+  box-shadow: 2px 3px 3px #257272;
+  outline: none;
+}
+
+.flex-cl {
+  display: flex;
+  flex-direction: column;
+}
