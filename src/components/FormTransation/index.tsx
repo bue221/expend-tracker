@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { GlobalContext } from "../../global-state";
 
 const FormTransation = () => {
+  const { addTransation } = useContext(GlobalContext);
+
   const [formInfo, setFormInfo] = useState({
     text: "",
-    number: 0,
+    amount: 0,
   });
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
@@ -15,7 +18,16 @@ const FormTransation = () => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log(formInfo);
+    const newElement = {
+      id: Math.floor(Math.random() * 1000000),
+      amount: +formInfo.amount,
+      text: formInfo.text,
+    };
+    addTransation(newElement);
+    setFormInfo({
+      text: "",
+      amount: 0,
+    });
   };
   return (
     <div>
@@ -38,10 +50,10 @@ const FormTransation = () => {
             (negative-expense, positive-income)
           </label>
           <input
-            id="number"
-            name="number"
+            id="amount"
+            name="amount"
             onChange={handleChange}
-            value={formInfo.number}
+            value={formInfo.amount}
             type="number"
           />
         </div>

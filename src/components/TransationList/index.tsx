@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../../global-state";
 
 const TransationList = () => {
-  const { transations } = useContext(GlobalContext);
+  const { transations, deleteTransition } = useContext(GlobalContext);
 
   return (
     <div>
@@ -14,7 +14,12 @@ const TransationList = () => {
             key={item.id}
           >
             {item.text} <span>${item.amount}</span>
-            <button className="del-btn">x</button>
+            <button
+              className="del-btn"
+              onClick={() => deleteTransition(item.id)}
+            >
+              x
+            </button>
           </li>
         ))}
       </ul>
