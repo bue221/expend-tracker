@@ -1,3 +1,4 @@
+import { type } from "node:os";
 import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
 
@@ -16,8 +17,8 @@ type initialStateProps = {
 const initialState = {
   transations: [
     { id: 1, text: "Flowers", amount: -20 },
-    { id: 1, text: "Salary", amount: 30 },
-    { id: 1, text: "Book", amount: -10 },
+    { id: 2, text: "Salary", amount: 300 },
+    { id: 3, text: "Book", amount: -10 },
   ],
 };
 
@@ -25,12 +26,21 @@ const initialState = {
 export const GlobalContext = createContext<initialStateProps>(initialState);
 
 //se crea el componente provider
-interface IState {
-  transations: Object;
-}
-
 export const GlobalProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
+
+  //actions
+  type Dispatch = {
+    type: String;
+    payload: number;
+  };
+
+  const deleteTransition = (id: number) => {
+    dispatch<Dispatch>({
+      type: "DELETE_TRANSITION",
+      payload: id,
+    });
+  };
 
   return (
     <GlobalContext.Provider value={{ transations: state.transations }}>
