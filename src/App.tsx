@@ -7,18 +7,21 @@ import TransationList from "./components/TransationList";
 import FormTransation from "./components/FormTransation";
 
 import "./App.css";
+import { GlobalProvider } from "./global-state";
 
 const App = () => {
   return (
-    <div className="container">
-      <div className="expense-card">
-        <Header />
-        <Balance />
-        <Income />
-        <TransationList />
-        <FormTransation />
+    <GlobalProvider>
+      <div className="container">
+        <div className="expense-card">
+          <Header />
+          <Balance />
+          <Income />
+          <TransationList />
+          <FormTransation />
+        </div>
       </div>
-    </div>
+    </GlobalProvider>
   );
 };
 
